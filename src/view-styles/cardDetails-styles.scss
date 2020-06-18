@@ -1,0 +1,39 @@
+.card-details-container {
+  padding: 10px 15px;
+  .fab-back-button {
+    background-color: white;
+    float: left;
+    top: 0px;
+    border-radius: 2px;
+  }
+  .card-image {
+    display: flex;
+    justify-content: center;
+    .card-image-container {
+      width: 500px;
+      height: 500px;
+    }
+  }
+  .price-info {
+    float: right;
+  }
+  .review-container {
+    display: flex;
+    justify-content: left;
+    .review-box {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+    }
+  }
+  .review-count {
+    font-size: large;
+    margin-top: 5px;
+  }
+  .long-description {
+    padding: 10px;
+  }
+  .short-description {
+    padding: 15px;
+  }
+}

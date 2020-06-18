@@ -1,0 +1,13 @@
+.lp-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 16px 38px;
+  .card-container {
+    cursor: pointer;
+  }
+}
+.footer-pagination {
+  display: flex;
+  justify-content: center;
+}
