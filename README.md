@@ -21,12 +21,12 @@ Scalability & Modularity are taken into consideration while developing this appl
 
 ### Tech
 
-Snapito uses a number of open source projects to work properly:
+Walmart uses a number of open source projects to work properly:
 
 - [ReactJS] - FrameWork enhanced for web apps!
 - [Material UI] Material-UI is an open-source project that features React components.
 
-And Snapito is a private Repo on GitHub.
+And Walmart is a private Repo on GitHub.
 
 ### Installation
 
