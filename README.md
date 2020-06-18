@@ -4,7 +4,7 @@
 
 Scalability & Modularity are taken into consideration while developing this application.
 
-- Card View with sketal Loading
+- Card View with skeletal Loading
 - Product Gallery
 
 ### WorkFlow
