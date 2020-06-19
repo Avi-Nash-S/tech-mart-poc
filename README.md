@@ -34,7 +34,7 @@ Walmart uses a number of open source projects to work properly:
 - [ReactJS] - FrameWork enhanced for web apps!
 - [Material UI] Material-UI is an open-source project that features React components.
 
-And Walmart is a private Repo on GitHub.
+And Walmart is a Repo on GitHub.
 
 ### Installation
 
