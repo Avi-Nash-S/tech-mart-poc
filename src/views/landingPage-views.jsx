@@ -57,7 +57,8 @@ class landingPageViews extends Component {
         <div className="footer-pagination">
           <Pagination
             count={Math.round(
-              parseInt(pageAttributes.totalProducts) / pageAttributes.pageSize
+              parseInt(pageAttributes.totalProducts || 60) /
+                pageAttributes.pageSize
             )}
             variant="outlined"
             shape="rounded"
