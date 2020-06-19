@@ -13,7 +13,14 @@ class landingPageViews extends Component {
     };
   }
   componentDidMount() {
-    this.props.getProducts();
+    const { data, getProducts } = this.props;
+    if (data.products) {
+      this.setState({
+        products: data.products.products,
+      });
+    } else {
+      getProducts();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -32,6 +39,7 @@ class landingPageViews extends Component {
     const { history, data } = this.props;
     const { products } = this.state;
     const isLoading = data.pending;
+    const pageAttributes = data.products;
     console.log(data);
     return (
       <>
@@ -48,10 +56,13 @@ class landingPageViews extends Component {
         </div>
         <div className="footer-pagination">
           <Pagination
-            count={Math.round(parseInt(data.products.totalProducts) / 8)}
+            count={Math.round(
+              parseInt(pageAttributes.totalProducts) / pageAttributes.pageSize
+            )}
             variant="outlined"
             shape="rounded"
             onChange={this.pageChange}
+            page={pageAttributes.pageNumber}
           />
         </div>
       </>
