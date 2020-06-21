@@ -9,7 +9,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
+import { lightBlue } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Skeleton from "@material-ui/lab/Skeleton";
 
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
     height: 160,
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: lightBlue[500],
   },
 }));
 
@@ -113,6 +113,9 @@ const CardComponent = ({ product, isLoading }) => {
             style={{ height: "160px", width: "160px" }}
             src={`https://mobile-tha-server-8ba57.firebaseapp.com${product.productImage}`}
             alt=""
+            onError={(e) =>
+              (e.target.src = `https://mobile-tha-server-8ba57.firebaseapp.com${product.productImage}`)
+            }
           />
         </div>
       )}
