@@ -1,15 +1,16 @@
 import React from "react";
 import { TitleContainer, DescriptionContainer } from "./helper";
+import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
+import CardActionArea from "@material-ui/core/CardActionArea";
 import Box from "@material-ui/core/Box";
 import Rating from "@material-ui/lab/Rating";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { lightBlue } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Skeleton from "@material-ui/lab/Skeleton";
 
@@ -23,11 +24,11 @@ const useStyles = makeStyles(() => ({
     height: 160,
   },
   avatar: {
-    backgroundColor: lightBlue[500],
+    backgroundColor: "#041e42",
   },
 }));
 
-const CardComponent = ({ product, isLoading }) => {
+const CardComponent = ({ product, isLoading, history, onFormEdit }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -47,7 +48,13 @@ const CardComponent = ({ product, isLoading }) => {
           )
         }
         action={
-          <IconButton aria-label="settings" style={{ paddingLeft: "0px" }}>
+          <IconButton
+            aria-label="settings"
+            style={{ paddingLeft: "0px" }}
+            onClick={(event) => {
+              onFormEdit(event, product);
+            }}
+          >
             <MoreVertIcon />
           </IconButton>
         }
@@ -60,7 +67,9 @@ const CardComponent = ({ product, isLoading }) => {
               style={{ marginBottom: 6 }}
             />
           ) : (
-            <TitleContainer>{product.productName}</TitleContainer>
+            <Tooltip title={product.productName}>
+              <TitleContainer>{product.productName}</TitleContainer>
+            </Tooltip>
           )
         }
         subheader={
@@ -83,63 +92,86 @@ const CardComponent = ({ product, isLoading }) => {
                   value={product.reviewRating}
                   readOnly
                 />
-                <span style={{ fontSize: "smaller" }}>
-                  {product.reviewCount}
-                </span>
+                <span style={{ fontSize: "8px" }}>{product.reviewCount}</span>
               </Box>
             </div>
           )
         }
       />
-      {isLoading && product.productImage !== undefined ? (
-        <Skeleton
-          animation="wave"
-          variant="rect"
-          height={160}
-          className={classes.media}
-        />
-      ) : (
-        <div
-          key={product.productId}
-          style={{
-            width: "100%",
-            height: "160px",
-            boxSizing: "initial",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            style={{ height: "160px", width: "160px" }}
-            src={`https://mobile-tha-server-8ba57.firebaseapp.com${product.productImage}`}
-            alt=""
-            onError={(e) =>
-              (e.target.src = `https://mobile-tha-server-8ba57.firebaseapp.com${product.productImage}`)
-            }
+      <CardActionArea
+        component="span"
+        className="card-container"
+        key={product.productId}
+        onClick={() => history.push(`/${product.productId}`)}
+      >
+        {isLoading && product.productImage !== undefined ? (
+          <Skeleton
+            animation="wave"
+            variant="rect"
+            height={160}
+            className={classes.media}
           />
-        </div>
-      )}
-      <CardContent>
-        {isLoading ? (
-          <React.Fragment>
-            <Skeleton
-              animation="wave"
-              height={10}
-              width={240}
-              style={{ marginBottom: 6 }}
-            />
-            <Skeleton animation="wave" height={10} width={210} />
-          </React.Fragment>
         ) : (
-          <Typography variant="body2" color="textSecondary">
-            <DescriptionContainer>
-              <span
-                dangerouslySetInnerHTML={{ __html: product.shortDescription }}
-              />
-            </DescriptionContainer>
-          </Typography>
+          <div
+            key={product.productId}
+            style={{
+              width: "100%",
+              height: "160px",
+              boxSizing: "initial",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              style={{ height: "160px", width: "160px" }}
+              src={`https://mobile-tha-server-8ba57.firebaseapp.com${product.productImage}`}
+              alt=""
+              onError={(e) =>
+                (e.target.src = `https://mobile-tha-server-8ba57.firebaseapp.com${product.productImage}`)
+              }
+            />
+          </div>
         )}
-      </CardContent>
+        <CardContent>
+          {isLoading ? (
+            <React.Fragment>
+              <Skeleton
+                animation="wave"
+                height={10}
+                width={240}
+                style={{ marginBottom: 6 }}
+              />
+              <Skeleton animation="wave" height={10} width={210} />
+            </React.Fragment>
+          ) : (
+            <Typography variant="body2" color="textSecondary">
+              <DescriptionContainer>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: product.shortDescription,
+                  }}
+                />
+              </DescriptionContainer>
+            </Typography>
+          )}
+        </CardContent>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          {isLoading ? (
+            <Skeleton animation="wave" height={10} width={210} />
+          ) : (
+            <span
+              style={{
+                position: "absolute",
+                bottom: "45%",
+                color: "#041e42",
+                fontWeight: 700,
+              }}
+            >
+              {product.price}
+            </span>
+          )}
+        </div>
+      </CardActionArea>
     </Card>
   );
 };

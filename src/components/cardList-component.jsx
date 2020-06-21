@@ -1,19 +1,25 @@
 import React from "react";
 import CardComponent from "../components/card-component";
 
-export default function CardListComponent({ products, isLoading, history }) {
+export default function CardListComponent({
+  products,
+  isLoading,
+  history,
+  onFormEdit,
+}) {
   return (
     <div>
       <div className="lp-container">
-        {products.map((product, index) => (
-          <span
-            className="card-container"
-            key={index}
-            onClick={() => history.push(`/${product.productId}`)}
-          >
-            <CardComponent product={product} isLoading={isLoading} />
-          </span>
-        ))}
+        {products &&
+          products.map((product, index) => (
+            <CardComponent
+              product={product}
+              isLoading={isLoading}
+              key={index}
+              history={history}
+              onFormEdit={onFormEdit}
+            />
+          ))}
       </div>
     </div>
   );

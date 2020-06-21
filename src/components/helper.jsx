@@ -6,6 +6,7 @@ export const TitleContainer = styled.span`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  cursor: default;
 `;
 
 export const DescriptionContainer = styled.span`

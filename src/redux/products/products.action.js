@@ -5,8 +5,9 @@ import { REQUEST, SUCCESS, FAILURE } from './action-type.util';
 const endPoint = 'https://mobile-tha-server-8ba57.firebaseapp.com/walmartproducts';
 
 
-export const getProducts = (pageNo = 1, pageSize = 8) => async dispatch => {
-    const requestUrl = `${endPoint}/${pageNo}/${pageSize}`;
+export const getProducts = (pageNo = 1, pageSize = 8, query) => async dispatch => {
+    console.log(query);
+    const requestUrl = `${endPoint}/${pageNo}/${pageSize}` + (query ? query : '');
     dispatch({ type: REQUEST(ProductActionTypes.GET_PRODUCTS) })
     axios.get(requestUrl).then(response => {
         return dispatch({
