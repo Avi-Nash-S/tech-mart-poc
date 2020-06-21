@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../redux/products/products.action";
-import CardComponent from "../components/card-component";
-import Pagination from "@material-ui/lab/Pagination";
 import "../view-styles/landingPage-styles.scss";
+import CardListComponent from "../components/cardList-component";
+import PaginationComponent from "../components/pagination-component";
 
 class landingPageViews extends Component {
   constructor(props) {
@@ -36,36 +36,19 @@ class landingPageViews extends Component {
   };
 
   render() {
-    const { history, data } = this.props;
+    const { data, history } = this.props;
     const { products } = this.state;
-    const isLoading = data.pending;
-    const pageAttributes = data.products;
-    console.log(data);
     return (
       <>
-        <div className="lp-container">
-          {products.map((product, index) => (
-            <span
-              className="card-container"
-              key={index}
-              onClick={() => history.push(`/${product.productId}`)}
-            >
-              <CardComponent product={product} isLoading={isLoading} />
-            </span>
-          ))}
-        </div>
-        <div className="footer-pagination">
-          <Pagination
-            count={Math.round(
-              parseInt(pageAttributes.totalProducts || 60) /
-                pageAttributes.pageSize
-            )}
-            variant="outlined"
-            shape="rounded"
-            onChange={this.pageChange}
-            page={pageAttributes.pageNumber}
-          />
-        </div>
+        <CardListComponent
+          products={products}
+          isLoading={data.pending}
+          history={history}
+        />
+        <PaginationComponent
+          pageAttributes={data.products}
+          pageChange={this.pageChange}
+        />
       </>
     );
   }

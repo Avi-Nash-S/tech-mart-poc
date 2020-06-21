@@ -128,9 +128,9 @@ const CardComponent = ({ product, isLoading }) => {
             <Skeleton animation="wave" height={10} width={210} />
           </React.Fragment>
         ) : (
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary">
             <DescriptionContainer>
-              <div
+              <span
                 dangerouslySetInnerHTML={{ __html: product.shortDescription }}
               />
             </DescriptionContainer>

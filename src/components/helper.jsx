@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TitleContainer = styled.div`
+export const TitleContainer = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -8,7 +8,7 @@ export const TitleContainer = styled.div`
   -webkit-box-orient: vertical;
 `;
 
-export const DescriptionContainer = styled.div`
+export const DescriptionContainer = styled.span`
   font-size: 13px;
   overflow: hidden;
   text-overflow: ellipsis;

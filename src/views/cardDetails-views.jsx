@@ -27,7 +27,7 @@ const CardDetailsViews = ({ match, details, history }) => {
   return (
     <div className="card-details-container">
       <Card className={classes.root}>
-        <CardActionArea>
+        <CardActionArea component="div">
           <Fab
             className="fab-back-button"
             onClick={() => history.replace("/")}
@@ -69,7 +69,7 @@ const CardDetailsViews = ({ match, details, history }) => {
                 </div>
               </div>
               <div className="long-description">
-                <div
+                <span
                   dangerouslySetInnerHTML={{
                     __html: currentProduct.longDescription,
                   }}
@@ -78,7 +78,7 @@ const CardDetailsViews = ({ match, details, history }) => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <div
+        <span
           className="short-description"
           dangerouslySetInnerHTML={{
             __html: currentProduct.shortDescription,
