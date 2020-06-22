@@ -33,6 +33,7 @@ const CardComponent = ({ product, isLoading, history, onFormEdit }) => {
   return (
     <Card className={classes.root}>
       <CardHeader
+        style={{ height: "73px" }}
         avatar={
           isLoading ? (
             <Skeleton
