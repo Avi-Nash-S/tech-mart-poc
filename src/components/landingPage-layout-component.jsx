@@ -238,7 +238,7 @@ class LandingPageLayout extends React.Component {
               </IconButton>
               <span style={{ cursor: "pointer" }} onClick={() => getProducts()}>
                 <Typography variant="h6" noWrap>
-                  Walmart
+                  Techmart
                   <img src={logo} alt="" style={{ height: "20px" }} />
                 </Typography>
               </span>
