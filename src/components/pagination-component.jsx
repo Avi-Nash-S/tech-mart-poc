@@ -20,7 +20,7 @@ export default function PaginationComponent({ pageAttributes, pageChange }) {
         id="demo-simple-select-outlined"
         value={pageAttributes.pageSize}
         defaultValue={8}
-        onChange={(event) => pageChange(event, null, event.target.value)}
+        onChange={(event) => pageChange(event, 1, event.target.value)}
       >
         <MenuItem value={6}> 6/page </MenuItem>
         <MenuItem value={8}> 8/page </MenuItem>

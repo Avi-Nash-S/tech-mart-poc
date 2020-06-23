@@ -114,10 +114,10 @@ class LandingPageLayout extends React.Component {
       searchQuery: null,
       filterQuery: null,
       searchIconDisplay: true,
-      minRating: 0,
-      minPrice: 0,
-      maxPrice: 0,
-      minReviewCount: 0,
+      minRating: "",
+      minPrice: "",
+      maxPrice: "",
+      minReviewCount: "",
       stockAvailability: false,
     };
   }
@@ -127,11 +127,7 @@ class LandingPageLayout extends React.Component {
     }));
   };
 
-  pageChange = (
-    event,
-    page = this.state.page,
-    pageSize = this.state.pageSize
-  ) => {
+  pageChange = (event, page = 1, pageSize = 8) => {
     this.setState(
       {
         pageSize,
@@ -139,8 +135,8 @@ class LandingPageLayout extends React.Component {
       },
       () =>
         this.props.getProducts(
-          this.state.page,
-          this.state.pageSize,
+          page,
+          pageSize,
           this.state.filterQuery
             ? this.state.filterQuery
             : this.state.searchQuery
@@ -200,15 +196,26 @@ class LandingPageLayout extends React.Component {
     this.setState(
       {
         filterQuery: null,
-        minPrice: 0,
-        maxPrice: 0,
-        minReviewCount: 0,
+        minPrice: "",
+        maxPrice: "",
+        minReviewCount: "",
+        stockAvailability: false,
+        minRating: "",
       },
       () => this.props.getProducts(1, 8, this.state.searchQuery)
     );
 
   render() {
-    const { open, searchIconDisplay, searchQuery } = this.state;
+    const {
+      open,
+      searchIconDisplay,
+      searchQuery,
+      minRating,
+      minPrice,
+      maxPrice,
+      minReviewCount,
+      stockAvailability,
+    } = this.state;
     const { data, classes, getProducts } = this.props;
     return (
       <>
@@ -307,6 +314,11 @@ class LandingPageLayout extends React.Component {
             <Divider />
             <div style={{ width: "100%", height: "100%", paddingTop: "20px" }}>
               <FilterOptionsForm
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                minRating={minRating}
+                minReviewCount={minReviewCount}
+                stockAvailability={stockAvailability}
                 handleSubmit={this.handleSubmit}
                 handleRadioChange={this.handleRadioChange}
                 minPriceUpdate={this.minPriceUpdate}

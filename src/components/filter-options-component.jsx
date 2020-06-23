@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const FilterOptionsForm = ({
+  minRating,
+  minPrice,
+  maxPrice,
+  minReviewCount,
+  stockAvailability,
   handleSubmit,
   handleRadioChange,
   minPriceUpdate,
@@ -41,6 +46,7 @@ const FilterOptionsForm = ({
         <RadioGroup
           aria-label="rating"
           name="rating"
+          value={minRating.toString()}
           onChange={handleRadioChange}
         >
           <FormControlLabel
@@ -113,6 +119,7 @@ const FilterOptionsForm = ({
           id="min-price"
           label="Min"
           variant="outlined"
+          value={minPrice}
           style={{ marginTop: " 10px" }}
           onChange={(event) => minPriceUpdate(event)}
         />
@@ -121,6 +128,7 @@ const FilterOptionsForm = ({
           id="max-price"
           label="Max"
           variant="outlined"
+          value={maxPrice}
           style={{ marginTop: " 10px" }}
           onChange={(event) => maxPriceUpdate(event)}
         />
@@ -128,6 +136,7 @@ const FilterOptionsForm = ({
         <TextField
           id="review-count"
           label="Review Count"
+          value={minReviewCount}
           onChange={(event) => reviewCountUpate(event)}
         />
         <Divider style={{ marginTop: "10px" }} />
@@ -137,7 +146,11 @@ const FilterOptionsForm = ({
         <FormControlLabel
           style={{ marginTop: "10px" }}
           control={
-            <Switch color="primary" onChange={(event) => switchUpdate(event)} />
+            <Switch
+              color="primary"
+              checked={stockAvailability}
+              onChange={(event) => switchUpdate(event)}
+            />
           }
           label="Available"
         />
