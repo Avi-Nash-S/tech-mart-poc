@@ -26,7 +26,7 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const LogoHeader = styled.div`
-  font-size: x-large;
+  font-size: xx-large;
   color: white;
   font-weight: 600;
   padding: 20px;
@@ -35,11 +35,13 @@ export const LogoHeader = styled.div`
 export const WelcomeTag = styled.div`
   color: #ffc220;
   font-size: large;
+  padding-right: 10px;
   font-weight: 600;
 `;
 
 export const SupportTag = styled.div`
   color: #ffc220;
   font-size: large;
+  padding-right: 10px;
   font-weight: 600;
 `;
