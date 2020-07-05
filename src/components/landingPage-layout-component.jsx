@@ -16,6 +16,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import PaginationComponent from "./pagination-component";
 import FilterOptionsForm from "./filter-options-component";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { connect } from "react-redux";
 import { getProducts } from "../redux/products/products.action";
 import { compose } from "redux";
@@ -72,7 +73,7 @@ const styles = (theme) => ({
     },
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
+      marginRight: "10%",
       width: "auto",
     },
   },
@@ -216,7 +217,7 @@ class LandingPageLayout extends React.Component {
       minReviewCount,
       stockAvailability,
     } = this.state;
-    const { data, classes, getProducts } = this.props;
+    const { data, classes, getProducts, history } = this.props;
     return (
       <>
         <div className={classes.root}>
@@ -246,7 +247,7 @@ class LandingPageLayout extends React.Component {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  width: "70%",
+                  width: "85%",
                 }}
               >
                 <div className={classes.search}>
@@ -284,6 +285,14 @@ class LandingPageLayout extends React.Component {
                   />
                 </div>
               </span>
+              <AccountCircleIcon
+                style={{
+                  cursor: "pointer",
+                  position: "absolute",
+                  right: "25px",
+                }}
+                onClick={() => history.push("/login")}
+              />
             </Toolbar>
           </AppBar>
           <Drawer

@@ -16,7 +16,7 @@ import Skeleton from "@material-ui/lab/Skeleton";
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: 245,
+    width: 300,
     margin: 10,
     height: 450,
   },
