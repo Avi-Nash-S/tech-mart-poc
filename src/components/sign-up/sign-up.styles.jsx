@@ -5,7 +5,7 @@ export const SignUpContainer = styled.div`
   flex-direction: column;
   width: 380px;
   color: white;
-  height: 55vh;
+  height: 58vh;
   overflow-x: hidden;
   padding-right: 10px;
 `;

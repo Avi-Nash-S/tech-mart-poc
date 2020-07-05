@@ -8,7 +8,7 @@ export default function CardListComponent({
   onFormEdit,
 }) {
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <div className="lp-container">
         {products &&
           products.map((product, index) => (
