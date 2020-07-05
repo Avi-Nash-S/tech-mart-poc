@@ -45,6 +45,7 @@ class landingPageViews extends Component {
   render() {
     const { data, history } = this.props;
     const { products, formView, productEditData } = this.state;
+    console.log(products);
     return (
       <LandingPageLayout history={history}>
         <CardListComponent

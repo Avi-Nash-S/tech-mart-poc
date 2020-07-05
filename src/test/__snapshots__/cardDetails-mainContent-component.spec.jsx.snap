@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardDetailsMainContent/> Should match the component snapshot 1`] = `
+<div
+  className="card-details-main-container"
+>
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Typography))
+      component="h2"
+      gutterBottom={true}
+      variant="h5"
+    >
+      SquareTrade 4-Year TV Protection Plan
+      <span
+        className="price-info"
+      >
+         Price: 
+        $49.00
+         
+      </span>
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))
+      color="textSecondary"
+      component="h5"
+      variant="body2"
+    >
+      <div
+        className="review-container"
+      >
+        <Styled(MuiBox)
+          borderColor="transparent"
+          className="review-box"
+          component="fieldset"
+        >
+          <WithStyles(ForwardRef(Rating))
+            name="read-only"
+            readOnly={true}
+            value={0}
+          />
+        </Styled(MuiBox)>
+        <div
+          className="review-count"
+        >
+          Reviews:0
+        </div>
+      </div>
+      <div
+        className="long-description"
+      >
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined,
+            }
+          }
+        />
+      </div>
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+</div>
+`;

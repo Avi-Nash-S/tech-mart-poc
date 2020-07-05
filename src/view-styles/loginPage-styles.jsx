@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const LoginContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 100vw;
+`;
+
 export const SignInAndSignUpContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;

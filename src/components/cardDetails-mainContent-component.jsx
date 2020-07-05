@@ -6,7 +6,7 @@ import Rating from "@material-ui/lab/Rating";
 
 export default function CardDetailsMainContent({ currentProduct }) {
   return (
-    <div>
+    <div className="card-details-main-container">
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           {currentProduct.productName}

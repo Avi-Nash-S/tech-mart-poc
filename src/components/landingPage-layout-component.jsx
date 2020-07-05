@@ -1,25 +1,16 @@
 import React from "react";
 import clsx from "clsx";
-import logo from "../static/walmartIcon.svg";
 import { fade, withStyles } from "@material-ui/core/styles";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import CloseIcon from "@material-ui/icons/Close";
 import Drawer from "@material-ui/core/Drawer";
-import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import PaginationComponent from "./pagination-component";
 import FilterOptionsForm from "./filter-options-component";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { connect } from "react-redux";
 import { getProducts } from "../redux/products/products.action";
 import { compose } from "redux";
+import HeaderComponent from "./header-component";
 
 const drawerWidth = 240;
 
@@ -205,6 +196,19 @@ class LandingPageLayout extends React.Component {
       },
       () => this.props.getProducts(1, 8, this.state.searchQuery)
     );
+  onSearchClear = () => {
+    this.setState(
+      {
+        searchQuery: null,
+      },
+      () => this.onSearch()
+    );
+  };
+  onSearchUpdate = (event) => {
+    this.setState({
+      searchQuery: `?search=${event.target.value}`,
+    });
+  };
 
   render() {
     const {
@@ -221,80 +225,18 @@ class LandingPageLayout extends React.Component {
     return (
       <>
         <div className={classes.root}>
-          <AppBar
-            position="fixed"
-            className={clsx(classes.appBar, {
-              [classes.appBarShift]: open,
-            })}
-          >
-            <Toolbar>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={this.handleDrawer}
-                edge="start"
-                className={classes.menuButton}
-              >
-                {open ? <ArrowBackIosIcon /> : <MenuIcon />}
-              </IconButton>
-              <span style={{ cursor: "pointer" }} onClick={() => getProducts()}>
-                <Typography variant="h6" noWrap>
-                  Techmart
-                  <img src={logo} alt="" style={{ height: "20px" }} />
-                </Typography>
-              </span>
-              <span
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "85%",
-                }}
-              >
-                <div className={classes.search}>
-                  <div className={classes.searchIcon}>
-                    {!searchIconDisplay && searchQuery ? (
-                      <CloseIcon
-                        onClick={() =>
-                          this.setState(
-                            {
-                              searchQuery: null,
-                            },
-                            () => this.onSearch()
-                          )
-                        }
-                      />
-                    ) : (
-                      <SearchIcon onClick={() => this.onSearch()} />
-                    )}
-                  </div>
-                  <InputBase
-                    placeholder="Search…"
-                    classes={{
-                      root: classes.inputRoot,
-                      input: classes.inputInput,
-                    }}
-                    inputProps={{ "aria-label": "search" }}
-                    onChange={(event) =>
-                      this.setState({
-                        searchQuery: `?search=${event.target.value}`,
-                      })
-                    }
-                    onKeyDown={(event) =>
-                      event.key === "Enter" && this.onSearch()
-                    }
-                  />
-                </div>
-              </span>
-              <AccountCircleIcon
-                style={{
-                  cursor: "pointer",
-                  position: "absolute",
-                  right: "25px",
-                }}
-                onClick={() => history.push("/login")}
-              />
-            </Toolbar>
-          </AppBar>
+          <HeaderComponent
+            searchIconDisplay={searchIconDisplay}
+            searchQuery={searchQuery}
+            getProducts={getProducts}
+            history={history}
+            open={open}
+            classes={classes}
+            onSearch={this.onSearch}
+            onSearchClear={this.onSearchClear}
+            handleDrawer={this.handleDrawer}
+            onSearchUpdate={this.onSearchUpdate}
+          />
           <Drawer
             className={classes.drawer}
             variant="persistent"

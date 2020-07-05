@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductForm/> Should match the component snapshot 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  aria-labelledby="form-dialog-title"
+  className="form-dialog"
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(DialogTitle))
+    id="form-dialog-title"
+  >
+    SquareTrade 4-Year TV Protection Plan
+  </WithStyles(ForwardRef(DialogTitle))>
+  <WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(DialogContentText)) />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue="0ff4d723-9973-4450-8f3b-f98bfb8ebd10"
+      disabled={true}
+      fullWidth={true}
+      id="PRODUCTID"
+      key="productId"
+      label="PRODUCTID"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue="SquareTrade 4-Year TV Protection Plan"
+      disabled={false}
+      fullWidth={true}
+      id="PRODUCTNAME"
+      key="productName"
+      label="PRODUCTNAME"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue="<ul>
+	<li>Protection against mechanical/electrical failures from normal use</li>
+	<li>PLUS members receive an additional 12 months of coverage</li>
+	<li>100% parts &amp; labor, no deductibles</li>
+	<li>On-site service for TVs 37&rdquo; and above, free 2-way shipping for smaller TVs</li>
+	<li>24/7 customer support</li>
+</ul>
+"
+      disabled={false}
+      fullWidth={true}
+      id="SHORTDESCRIPTION"
+      key="shortDescription"
+      label="SHORTDESCRIPTION"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue="$49.00"
+      disabled={false}
+      fullWidth={true}
+      id="PRICE"
+      key="price"
+      label="PRICE"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue="/images/image7.jpeg"
+      disabled={false}
+      fullWidth={true}
+      id="PRODUCTIMAGE"
+      key="productImage"
+      label="PRODUCTIMAGE"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue={0}
+      disabled={false}
+      fullWidth={true}
+      id="REVIEWRATING"
+      key="reviewRating"
+      label="REVIEWRATING"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue={0}
+      disabled={false}
+      fullWidth={true}
+      id="REVIEWCOUNT"
+      key="reviewCount"
+      label="REVIEWCOUNT"
+      margin="dense"
+      type="text"
+    />
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      defaultValue={false}
+      disabled={false}
+      fullWidth={true}
+      id="INSTOCK"
+      key="inStock"
+      label="INSTOCK"
+      margin="dense"
+      type="text"
+    />
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      onClick={[Function]}
+    >
+      Cancel
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      onClick={[Function]}
+    >
+      Update
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</WithStyles(ForwardRef(Dialog))>
+`;

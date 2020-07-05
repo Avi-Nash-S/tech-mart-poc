@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardComponent/> Should match the component snapshot 1`] = `
+<WithStyles(ForwardRef(Card))
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(CardHeader))
+    action={
+      <ForwardRef(WithStyles)
+        aria-label="settings"
+        onClick={[Function]}
+        style={
+          Object {
+            "paddingLeft": "0px",
+          }
+        }
+      >
+        <UNDEFINED />
+      </ForwardRef(WithStyles)>
+    }
+    avatar={
+      <ForwardRef(WithStyles)
+        aria-label="recipe"
+        className="makeStyles-avatar-3"
+      >
+        S
+      </ForwardRef(WithStyles)>
+    }
+    style={
+      Object {
+        "height": "73px",
+      }
+    }
+    subheader={
+      <div>
+        <ForwardRef(StyledComponent)
+          borderColor="transparent"
+          component="fieldset"
+          style={
+            Object {
+              "padding": "0px",
+              "width": "135px",
+            }
+          }
+        >
+          <ForwardRef(WithStyles)
+            name="read-only"
+            readOnly={true}
+            value={0}
+          />
+          <span
+            style={
+              Object {
+                "fontSize": "8px",
+              }
+            }
+          >
+            0
+          </span>
+        </ForwardRef(StyledComponent)>
+      </div>
+    }
+    title={
+      <ForwardRef(WithStyles)
+        title="SquareTrade 4-Year TV Protection Plan"
+      >
+        <ForwardRef(styled.span)>
+          SquareTrade 4-Year TV Protection Plan
+        </ForwardRef(styled.span)>
+      </ForwardRef(WithStyles)>
+    }
+  />
+  <WithStyles(ForwardRef(CardActionArea))
+    className="card-container"
+    component="span"
+    key="0ff4d723-9973-4450-8f3b-f98bfb8ebd10"
+    onClick={[Function]}
+  >
+    <div
+      key="0ff4d723-9973-4450-8f3b-f98bfb8ebd10"
+      style={
+        Object {
+          "boxSizing": "initial",
+          "display": "flex",
+          "height": "160px",
+          "justifyContent": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <img
+        alt=""
+        onError={[Function]}
+        src="https://mobile-tha-server-8ba57.firebaseapp.com/images/image7.jpeg"
+        style={
+          Object {
+            "height": "160px",
+            "width": "160px",
+          }
+        }
+      />
+    </div>
+    <WithStyles(ForwardRef(CardContent))>
+      <WithStyles(ForwardRef(Typography))
+        color="textSecondary"
+        variant="body2"
+      >
+        <styled.span>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<ul>
+	<li>Protection against mechanical/electrical failures from normal use</li>
+	<li>PLUS members receive an additional 12 months of coverage</li>
+	<li>100% parts &amp; labor, no deductibles</li>
+	<li>On-site service for TVs 37&rdquo; and above, free 2-way shipping for smaller TVs</li>
+	<li>24/7 customer support</li>
+</ul>
+",
+              }
+            }
+          />
+        </styled.span>
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(CardContent))>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "bottom": "45%",
+            "color": "#041e42",
+            "fontWeight": 700,
+            "position": "absolute",
+          }
+        }
+      >
+        $49.00
+      </span>
+    </div>
+  </WithStyles(ForwardRef(CardActionArea))>
+</WithStyles(ForwardRef(Card))>
+`;

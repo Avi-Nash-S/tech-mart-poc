@@ -11,6 +11,7 @@ import {
   SideCard,
   LogoHeader,
   WelcomeTag,
+  LoginContainer,
 } from "../view-styles/loginPage-styles";
 
 const pageMode = {
@@ -60,15 +61,7 @@ class LoginPage extends Component {
       }
     };
     return (
-      <div
-        style={{
-          position: "absolute",
-          top: "0px",
-          right: "0px",
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
+      <LoginContainer>
         <SignInAndSignUpContainer>
           <Toggle
             onLoginClick={this.onLoginClick}
@@ -85,7 +78,7 @@ class LoginPage extends Component {
             <SignRender />
           </SideCard>
         </SignInAndSignUpContainer>
-      </div>
+      </LoginContainer>
     );
   }
 }

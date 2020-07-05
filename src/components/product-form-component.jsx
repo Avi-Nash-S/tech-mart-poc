@@ -12,6 +12,7 @@ const ProductFormList = (product) => Object.entries(product);
 const ProductForm = ({ formView, onFormEdit, productEditData }) => {
   return (
     <Dialog
+      className="form-dialog"
       open={formView}
       onClose={onFormEdit}
       aria-labelledby="form-dialog-title"
