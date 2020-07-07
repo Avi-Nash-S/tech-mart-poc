@@ -17,7 +17,7 @@ class landingPageViews extends Component {
   }
   componentDidMount() {
     const { data, getProducts } = this.props;
-    if (data.products) {
+    if (Array.isArray(data.products.products) && data.products.products.length) {
       this.setState({
         products: data.products.products,
       });
