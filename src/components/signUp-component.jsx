@@ -57,7 +57,7 @@ function SignUp({ onSignInClick, handleSubmit, submitSucceeded }) {
   const history = useHistory();
   submitSucceeded && onSignInClick();
   return (
-    <Container component="main" maxWidth="xs"></Container>
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Typography
