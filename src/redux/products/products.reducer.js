@@ -1,5 +1,5 @@
 import { ProductActionTypes } from './products.types';
-import { SUCCESS, REQUEST, FAILURE } from './action-type.util';
+import { SUCCESS, REQUEST, FAILURE } from '../action-type.util';
 
 const INITIAL_STATE = {
     products: [],

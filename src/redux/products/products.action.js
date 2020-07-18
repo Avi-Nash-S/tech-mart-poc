@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ProductActionTypes } from './products.types';
-import { REQUEST, SUCCESS, FAILURE } from './action-type.util';
+import { REQUEST, SUCCESS, FAILURE } from '../action-type.util';
 
 const endPoint = 'https://mobile-tha-server-8ba57.firebaseapp.com/walmartproducts';
 
