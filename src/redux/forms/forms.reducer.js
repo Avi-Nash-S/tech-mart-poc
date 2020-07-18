@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 const formsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SUCCESS(FormsActionType.GET_PRODUCTS):
+        case SUCCESS(FormsActionType.SUBMIT_FORM):
             return {
                 ...state,
                 userDB: Object.assign(action.payload, state.userDB)

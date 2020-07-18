@@ -52,11 +52,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignUp({ onSignInClick, handleSubmit }) {
+function SignUp({ onSignInClick, handleSubmit, submitSucceeded }) {
   const classes = useStyles();
   const history = useHistory();
+  submitSucceeded && onSignInClick();
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs"></Container>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography

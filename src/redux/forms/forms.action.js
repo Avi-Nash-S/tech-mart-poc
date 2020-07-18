@@ -7,16 +7,20 @@ export const onSignUpSubmit = (value) => async dispatch => {
         [value.email]: value.password
     };
     return dispatch({
-        type: SUCCESS(FormsActionType.GET_PRODUCTS),
+        type: SUCCESS(FormsActionType.SUBMIT_FORM),
         payload: obj
     })
 };
 
-export const onSignInSubmit = (value) => {
+export const onSignInSubmit = (value) => async dispatch => {
     // workaround -> redux saga to be implemented
     const userDb = store.store.getState().data.userDB;
     if (userDb && userDb.hasOwnProperty(value.email) && value.password === userDb[value.email]) {
         alert(`${Object.keys(userDb)[0]} authenticated by ${Object.values(userDb)[0]}`)
+        return dispatch({
+            type: SUCCESS(FormsActionType.SUBMIT_FORM),
+            payload: userDb
+        })
     } else {
         alert('Error Logging in')
     }

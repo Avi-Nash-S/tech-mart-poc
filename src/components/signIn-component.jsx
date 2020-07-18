@@ -51,9 +51,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#041e42",
   },
 }));
-function SignIn({ onSignUpClick, handleSubmit, submitting }) {
+function SignIn({ onSignUpClick, handleSubmit, submitting, submitSucceeded }) {
   const classes = useStyles();
   const history = useHistory();
+  submitSucceeded && history.push("/");
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
