@@ -15,6 +15,8 @@ import FieldInput from "../components/fieldInput-component";
 import { reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { onSignUpSubmit } from "../redux/forms/forms.action";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 function Copyright() {
   return (
@@ -52,9 +54,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignUp({ onSignInClick, handleSubmit, submitSucceeded }) {
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+function SignUp({ onSignInClick, handleSubmit, submitSucceeded, error }) {
   const classes = useStyles();
   const history = useHistory();
+  const [open, setOpen] = React.useState(true);
   submitSucceeded && onSignInClick();
   return (
     <Container component="main" maxWidth="xs">
@@ -126,6 +133,7 @@ function SignUp({ onSignInClick, handleSubmit, submitSucceeded }) {
             fullWidth
             variant="contained"
             color="primary"
+            onClick={() => setOpen(true)}
             className={classes.submit}
           >
             Sign Up
@@ -147,6 +155,15 @@ function SignUp({ onSignInClick, handleSubmit, submitSucceeded }) {
       <Box mt={5}>
         <Copyright />
       </Box>
+      {error && (
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          onClose={() => setOpen(false)}
+        >
+          <Alert severity="warning">{error}</Alert>
+        </Snackbar>
+      )}
     </Container>
   );
 }
