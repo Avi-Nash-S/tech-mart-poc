@@ -23,12 +23,20 @@ export const onSignInSubmit = (value) => async dispatch => {
     const userDb = store.store.getState().data.userDB;
     if (userDb && userDb.hasOwnProperty(value.email) && value.password === userDb[value.email]) {
         return dispatch({
-            type: SUCCESS(FormsActionType.SUBMIT_FORM),
-            payload: userDb
+            type: SUCCESS(FormsActionType.LOGIN_FORM),
+            payload: value.email
         })
     } else if (userDb && userDb.hasOwnProperty(value.email)) {
         throw new SubmissionError({ _error: 'Password does not Match' })
     } else {
         throw new SubmissionError({ _error: 'User does not exist' })
     }
+}
+
+export const logoutUser = () => async dispatch => {
+    console.log('hi there, Im called')
+    return dispatch({
+        type: SUCCESS(FormsActionType.LOGOUT_FORM),
+        payload: null
+    })
 }

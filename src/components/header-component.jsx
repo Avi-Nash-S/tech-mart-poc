@@ -11,8 +11,12 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
+import { connect } from "react-redux";
+import { logoutUser } from "../redux/forms/forms.action";
+import Avatar from "@material-ui/core/Avatar";
+import Tooltip from "@material-ui/core/Tooltip";
 
-export default function HeaderComponent({
+function HeaderComponent({
   searchIconDisplay,
   searchQuery,
   getProducts,
@@ -23,6 +27,8 @@ export default function HeaderComponent({
   onSearchClear,
   handleDrawer,
   onSearchUpdate,
+  user,
+  logout,
 }) {
   return (
     <div>
@@ -75,16 +81,46 @@ export default function HeaderComponent({
               />
             </div>
           </span>
-          <AccountCircleIcon
-            style={{
-              cursor: "pointer",
-              position: "absolute",
-              right: "25px",
-            }}
-            onClick={() => history.push("/login")}
-          />
+          {user ? (
+            <Tooltip title={user}>
+              <Avatar
+                aria-label="recipe"
+                style={{
+                  backgroundColor: "#ffc220",
+                  color: "black",
+                  cursor: "pointer",
+                  position: "absolute",
+                  right: "25px",
+                }}
+                onClick={() => logout()}
+              >
+                {user.toUpperCase().charAt(0)}
+              </Avatar>
+            </Tooltip>
+          ) : (
+            <Tooltip title={"Click to Login"}>
+              <AccountCircleIcon
+                style={{
+                  cursor: "pointer",
+                  position: "absolute",
+                  right: "25px",
+                }}
+                onClick={() => history.push("/login")}
+              />
+            </Tooltip>
+          )}
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+const mapStateToProps = (storeState) => ({
+  user: storeState.data.loggedIn,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logoutUser()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

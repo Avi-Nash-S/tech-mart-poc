@@ -9,7 +9,8 @@ import formsReducer from './forms/forms.reducer.js';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['products']
+    whitelist: ['data'],
+    blacklist: ['products']
 };
 
 const rootReducer = combineReducers({

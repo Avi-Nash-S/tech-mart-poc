@@ -2,7 +2,8 @@ import { FormsActionType } from './forms.types';
 import { SUCCESS } from '../action-type.util';
 
 const INITIAL_STATE = {
-    userDB: null
+    userDB: null,
+    loggedIn: null
 };
 
 const formsReducer = (state = INITIAL_STATE, action) => {
@@ -12,6 +13,16 @@ const formsReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 userDB: Object.assign(action.payload, state.userDB)
             };
+        case SUCCESS(FormsActionType.LOGIN_FORM):
+            return {
+                ...state,
+                loggedIn: action.payload
+            }
+        case SUCCESS(FormsActionType.LOGOUT_FORM):
+            return {
+                ...state,
+                loggedIn: action.payload
+            }
         default:
             return state;
     }
