@@ -28,7 +28,7 @@ export const onSignInSubmit = (value) => async dispatch => {
         })
     } else if (userDb && userDb.hasOwnProperty(value.email)) {
         throw new SubmissionError({ _error: 'Password does not Match' })
-    } else if (userDb && value.password !== userDb[value.email]) {
+    } else {
         throw new SubmissionError({ _error: 'User does not exist' })
     }
 }

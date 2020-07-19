@@ -68,7 +68,7 @@ function SignIn({
   const classes = useStyles();
   const history = useHistory();
   const [open, setOpen] = React.useState(true);
-  submitSucceeded && history.push("/");
+  submitSucceeded && !error && history.push("/");
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
