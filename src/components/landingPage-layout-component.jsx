@@ -300,7 +300,7 @@ class LandingPageLayout extends React.Component {
                   alignContent: "center",
                 }}
               >
-                No Data Found
+                Loading...
               </div>
             )}
           </main>
