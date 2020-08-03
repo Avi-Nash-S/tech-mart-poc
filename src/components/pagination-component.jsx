@@ -16,6 +16,7 @@ export default function PaginationComponent({ pageAttributes, pageChange }) {
         page={pageAttributes.pageNumber}
       />
       <Select
+        style={{ marginLeft: "10px" }}
         labelId="demo-simple-select-outlined-label"
         id="demo-simple-select-outlined"
         value={pageAttributes.pageSize}
