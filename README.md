@@ -1,6 +1,4 @@
-# Walmart
-
-![Build Status](https://raw.githubusercontent.com/dwyl/repo-badges/master/highresPNGs/build-passing.png)
+# Techmart
 
 Scalability & Modularity are taken into consideration while developing this application.
 
